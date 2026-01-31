@@ -1,5 +1,7 @@
 # SprintIQ: Intelligent Agile Estimation System
 
+![SprintIQ Hero Section](docs/images/hero_main.png)
+
 ## Introduction
 
 SprintIQ is an advanced, machine learning-based estimation system designed to optimize Agile sprint planning processes. By leveraging Natural Language Processing (NLP) and historical project data, SprintIQ analyzes the semantic complexity of user stories to provide objective, data-driven story point estimates. This system aims to eliminate the subjective bias inherent in traditional estimation methods, such as planning poker, and significantly reduce the time engineering teams spend on sprint planning.
@@ -9,6 +11,8 @@ SprintIQ is an advanced, machine learning-based estimation system designed to op
 In modern software engineering, accurate estimation is critical for predictable delivery and effective resource allocation. However, human estimation is often prone to cognitive biases, fatigue, and inconsistency. SprintIQ addresses these challenges by introducing an objective, automated baseline for estimation.
 
 The platform bridges the gap between human intuition and statistical reality. By training on a comprehensive dataset of completed user stories and their actual implementation complexities, SprintIQ learns to recognize patterns in requirements that correlate with higher or lower effort levels. This results in estimates that are consistent, reproducible, and grounded in empirical data.
+
+![Strategic Benefits](docs/images/benefits_overview.png)
 
 ## Key Features
 
@@ -24,12 +28,16 @@ The traditional estimation process can be time-consuming, often descending into 
 ### Confidence Metrics and Risk Assessment
 The system does not just provide a raw number; it also calculates a confidence score for each prediction. This allows teams to identify which stories are well-understood by the model and which may require deeper human review due to ambiguity or novelty.
 
+![Features Detail](docs/images/features_detail.png)
+
 ### Standard Agile Methodology Compliance
 The system is designed to integrate seamlessly into existing Agile workflows. It natively supports the Fibonacci sequence (1, 2, 3, 5, 8, 13) for story points, the standard scale used by the majority of Agile teams to represent exponential complexity.
 
 ## System Architecture and Workflow
 
 SprintIQ operates through a four-stage pipeline that transforms raw text into actionable insights.
+
+![Workflow Diagram](docs/images/workflow_diagram.png)
 
 ### 1. Data Input
 The process begins with the input of a user story, typically following the standard format: *"As a [role], I want [feature], so that [benefit]"*. The system accepts this unstructured text via a web interface or a RESTful API.
@@ -90,6 +98,9 @@ Once the server is running, the application will be accessible at `http://127.0.
 
 ### Web Interface
 The SprintIQ web interface provides a user-friendly environment for estimation.
+
+![Estimator UI](docs/images/estimator_ui.png)
+
 1.  Open a web browser and navigate to `http://127.0.0.1:8000`.
 2.  Select the **Estimator** tab.
 3.  Input the detailed user story into the provided text field.
