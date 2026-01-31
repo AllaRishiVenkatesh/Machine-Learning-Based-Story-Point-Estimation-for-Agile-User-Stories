@@ -1,0 +1,9 @@
+id,timestamp,prediction_id,user_story,actual_points
+1a9df08e-0d11-4994-ab09-dd33c6cde65c,2026-01-31T18:32:53.912674,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",8
+303fe43c-d91f-4e04-b376-db021fa116c1,2026-01-31T18:32:54.471985,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",13
+61bb5456-5cf9-48fc-9c0c-6595337455c0,2026-01-31T18:32:55.336457,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",8
+51ea3afb-f903-4707-9c3d-561ed3ea1296,2026-01-31T18:32:56.174206,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",5
+5add2c23-8f59-4ab7-82a0-c114e378650e,2026-01-31T18:32:56.976311,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",3
+64f3ad40-eeb6-4520-94e2-325c3ad7923c,2026-01-31T18:32:57.559525,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",2
+97b9d02e-a5da-4b19-92b9-342d0f0704cf,2026-01-31T18:32:58.273006,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",1
+5489d99a-83b1-4fa8-810a-cd08d92f513e,2026-01-31T18:32:59.328418,2b84507b-402b-499d-a7f3-75524449fa8d,"As a user, I want to reset my password via email link so that I can regain access securely.",5

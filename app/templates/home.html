@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-32 md:py-40 relative">
+  <div class="max-w-[1100px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-16">
+    <div class="flex-1 text-center md:text-left">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight animate-[fadeInUp_0.5s_ease-out]">
+        The Power of Intelligent <br>Agile Estimation
+      </h1>
+      <p class="text-lg md:text-xl text-secondary mb-8 animate-[fadeInUp_0.5s_ease-out_0.2s_both]">
+        AI-driven story point prediction to improve sprint planning accuracy and reduce meeting fatigue.
+      </p>
+      <div class="flex gap-4 justify-center md:justify-start animate-[fadeInUp_0.5s_ease-out_0.4s_both]">
+        <a href="#estimator"
+          class="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-hover transition-colors">Estimate
+          Story Points</a>
+        <a href="/how-it-works"
+          class="border border-white/10 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/5 transition-colors">Learn
+          How It Works</a>
+      </div>
+    </div>
+    <div class="flex-1 text-center animate-[fadeInLeft_0.5s_ease-out_0.6s_both]">
+      <!-- Abstract Wave SVG -->
+      <svg width="100%" height="auto" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M50,150 C100,50 200,250 350,150" stroke="url(#grad1)" stroke-width="4" fill="none" />
+        <circle cx="50" cy="150" r="8" fill="#4F46E5" />
+        <circle cx="350" cy="150" r="8" fill="#4F46E5" />
+        <path d="M50,180 C150,100 250,280 350,180" stroke="#E2E8F0" stroke-width="2" fill="none"
+          stroke-dasharray="5,5" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Estimator Preview Section -->
+<section id="estimator" class="relative z-10 -mt-12 mb-32">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <div class="bg-card-bg border border-white/10 rounded-xl p-10 max-w-2xl mx-auto shadow-2xl">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-semibold text-white">Estimator Preview</h2>
+        <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold border border-accent/20">Live
+          Demo</span>
+      </div>
+
+      <form id="estimation-form">
+        <div class="mb-4">
+          <label for="user-story" class="block mb-2 text-sm text-secondary">Agile User Story</label>
+
+          <div class="flex gap-2 mb-4 flex-wrap">
+            <span class="text-xs text-secondary w-full mb-1">Try an example:</span>
+            <button type="button"
+              class="bg-slate-800/60 border border-white/10 text-slate-400 px-4 py-1.5 rounded-full text-xs hover:bg-accent/20 hover:border-accent hover:text-white transition-all transform hover:-translate-y-px"
+              data-story="As a user, I want to reset my password via email link so that I can regain access securely.">Reset
+              Password</button>
+            <button type="button"
+              class="bg-slate-800/60 border border-white/10 text-slate-400 px-4 py-1.5 rounded-full text-xs hover:bg-accent/20 hover:border-accent hover:text-white transition-all transform hover:-translate-y-px"
+              data-story="As an admin, I want to view a dashboard of user activity metrics to monitor system health.">Admin
+              Dashboard</button>
+            <button type="button"
+              class="bg-slate-800/60 border border-white/10 text-slate-400 px-4 py-1.5 rounded-full text-xs hover:bg-accent/20 hover:border-accent hover:text-white transition-all transform hover:-translate-y-px"
+              data-story="As a customer, I want to filter products by price range to find items within my budget.">Filter
+              Products</button>
+          </div>
+
+          <textarea id="user-story"
+            class="w-full bg-black/20 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-accent transition-colors"
+            placeholder="As a user, I want to filter search results by date so that I can find recent items..."
+            required></textarea>
+          <div id="error-msg" class="text-red-400 text-sm mt-2 hidden"></div>
+        </div>
+
+        <button type="submit" id="submit-btn"
+          class="w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-accent-hover transition-colors flex justify-center items-center">
+          <span id="btn-text">Estimate Story Points</span>
+          <span id="btn-spinner" style="display: none;">
+            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+              </path>
+            </svg>
+          </span>
+        </button>
+      </form>
+
+      <div id="result-container" class="mt-6 pt-6 border-t border-white/10 hidden">
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div class="bg-white/5 rounded-lg p-4 text-center">
+            <h3 class="text-sm text-secondary mb-1">Prediction</h3>
+            <div class="text-3xl font-bold text-accent" id="points-value">5</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-4 text-center flex flex-col justify-center items-center">
+            <h3 class="text-sm text-secondary mb-1">Confidence</h3>
+            <div><span id="confidence-badge" class="px-3 py-1 rounded-full text-sm font-semibold">High</span></div>
+          </div>
+        </div>
+        <!-- Feedback Mini -->
+        <div class="flex items-center gap-2 mt-4 text-sm text-secondary">
+          <p>Was this accurate?</p>
+          <div id="feedback-buttons" class="flex gap-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Value Proposition -->
+<section class="py-16 pb-32">
+  <div class="max-w-[1100px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div
+      class="bg-card-bg p-8 rounded-lg border border-white/10 hover:-translate-y-1 hover:border-accent hover:shadow-2xl transition-all duration-300">
+      <div class="text-4xl mb-4">🧠</div>
+      <h3 class="text-xl font-bold text-white mb-2">AI-Powered Accuracy</h3>
+      <p class="text-secondary">Leverage historical data and NLP to reduce human bias in estimation.</p>
+    </div>
+    <div
+      class="bg-card-bg p-8 rounded-lg border border-white/10 hover:-translate-y-1 hover:border-accent hover:shadow-2xl transition-all duration-300">
+      <div class="text-4xl mb-4">⚖️</div>
+      <h3 class="text-xl font-bold text-white mb-2">Reduced Planning Bias</h3>
+      <p class="text-secondary">Standardize estimates across teams with consistent machine-based baselines.</p>
+    </div>
+    <div
+      class="bg-card-bg p-8 rounded-lg border border-white/10 hover:-translate-y-1 hover:border-accent hover:shadow-2xl transition-all duration-300">
+      <div class="text-4xl mb-4">⚡</div>
+      <h3 class="text-xl font-bold text-white mb-2">Faster Sprint Planning</h3>
+      <p class="text-secondary">Spend less time debating points and more time delivering value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- History Section Mini -->
+<section class="pb-32">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="text-2xl font-bold text-white">Recent Live Estimates</h3>
+      <button id="clear-history-btn"
+        class="border border-white/10 text-secondary px-3 py-1.5 rounded text-sm hover:bg-white/5 transition-colors">Clear
+        History</button>
+    </div>
+    <div id="history-list" class="space-y-3"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/app.js"></script>
+<!-- Tailwind Animation Keyframes need to be defined in Config, but we did that in layout.html -->
+<style type="text/tailwindcss">
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Additional Styles for dynamic feedback buttons */
+  .btn-feedback {
+    @apply w-8 h-8 rounded-full border border-white/10 bg-white/5 text-white text-xs flex items-center justify-center cursor-pointer transition-colors hover:border-accent;
+  }
+
+  .btn-feedback.active {
+    @apply bg-accent border-accent;
+  }
+
+  /* Confidence classes */
+  .confidence-high {
+    @apply bg-green-500/20 text-green-400;
+  }
+
+  .confidence-medium {
+    @apply bg-yellow-500/20 text-yellow-400;
+  }
+
+  .confidence-low {
+    @apply bg-red-500/20 text-red-400;
+  }
+
+  /* History Items */
+  .history-item {
+    @apply bg-card-bg border border-white/5 rounded-lg p-4 flex justify-between items-center;
+  }
+
+  .history-story {
+    @apply text-gray-300 truncate max-w-[80%];
+  }
+
+  .history-points {
+    @apply font-bold text-accent;
+  }
+</style>
+{% endblock %}

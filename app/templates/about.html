@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}About - SprintIQ{% endblock %}
+
+{% block content %}
+<section class="text-center py-16 bg-transparent text-white">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">About SprintIQ</h1>
+    <p class="text-secondary text-lg md:text-xl">Redefining Agile velocity with the precision of Artificial
+      Intelligence.</p>
+  </div>
+</section>
+
+<section class="max-w-[1100px] mx-auto px-6 pb-20">
+  <!-- Mission Statement -->
+  <div class="mb-12">
+    <div
+      class="bg-gradient-to-br from-slate-800/70 to-slate-900/60 backdrop-blur-md border border-white/5 rounded-xl p-10 flex flex-col items-center text-center hover:translate-y-[-5px] hover:border-accent hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-slate-900/80 transition-all duration-300">
+      <h2
+        class="text-2xl font-bold text-white mb-4 relative flex items-center gap-3 before:content-[''] before:w-1 before:h-5 before:bg-accent before:rounded-sm">
+        Our Mission</h2>
+      <p class="text-secondary text-lg max-w-2xl leading-relaxed">
+        To eliminate the uncertainty in software planning. We bridge the gap between human intuition and data driven
+        reality, enabling engineering teams to deliver on time, every time.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+    <!-- Story -->
+    <div
+      class="bg-card-bg p-8 rounded-lg border border-white/10 hover:-translate-y-1 hover:border-accent hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+      <h3 class="text-xl font-bold text-white mb-4">The Origin</h3>
+      <p class="text-secondary mb-4 leading-relaxed">SprintIQ was born from a frustration common to every developer:
+        <strong>Estimation Poker</strong>. What should be a quick sync often turns into a 30-minute debate over abstract
+        numbers.</p>
+      <p class="text-secondary leading-relaxed">We realized that historical data holds the answer. By training models on
+        thousands of completed user stories, we built a system that offers an objective baseline—freeing teams to focus
+        on the <em>"how"</em> rather than the <em>"how long"</em>.</p>
+    </div>
+
+    <!-- Vision -->
+    <div
+      class="bg-card-bg p-8 rounded-lg border border-white/10 hover:-translate-y-1 hover:border-accent hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+      <h3 class="text-xl font-bold text-white mb-4">The Vision</h3>
+      <p class="text-secondary mb-4 leading-relaxed">We envision a future where <strong>Sprint Planning is
+          automated</strong>. Where AI suggests the points, identifies risks before code is written, and helps product
+        managers write clearer requirements.</p>
+      <p class="text-secondary leading-relaxed">SprintIQ is the first step towards that future—a smart companion for the
+        modern Agile team.</p>
+    </div>
+  </div>
+
+  <!-- Founder / Ownership Section -->
+  <div class="mt-20">
+    <h2 class="text-center text-2xl font-bold text-white mb-8">The Founder</h2>
+    <div
+      class="bg-gradient-to-br from-slate-800/70 to-slate-900/60 backdrop-blur-md border border-white/5 rounded-xl p-10 flex flex-col md:flex-row gap-8 items-center text-left hover:translate-y-[-5px] hover:border-accent hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-slate-900/80 transition-all duration-300 max-w-4xl mx-auto">
+      <img src="/static/images/founder.png" alt="Alla Rishi Venkatesh"
+        class="w-[150px] h-[150px] rounded-full object-cover border-4 border-white/10 shadow-[0_4px_15px_rgba(0,0,0,0.5)] flex-shrink-0">
+      <div>
+        <h3 class="text-xl font-bold text-white mb-2">Alla Rishi Venkatesh</h3>
+        <p class="inline-block bg-white/10 px-3 py-1 rounded-full text-sm text-secondary mb-4">B.Tech Student & AI
+          Developer</p>
+        <p class="text-secondary mt-4 leading-relaxed italic">
+          "Developed as a B.Tech project, SprintIQ demonstrates the power of ML in modern software engineering. I built
+          this platform to show how data-driven insights can solve real-world Agile challenges like estimation bias."
+        </p>
+        <div class="mt-6 text-sm text-secondary border-t border-white/5 pt-4">
+          &copy; 2026 Alla Rishi Venkatesh. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Legal / Rights Section -->
+<section class="max-w-[1100px] mx-auto px-6 mt-16 pb-16 text-center">
+  <p class="text-secondary text-sm leading-relaxed opacity-75">
+    This project and its proprietary algorithms are the intellectual property of <strong>Alla Rishi Venkatesh</strong>.
+    <br>
+    Unauthorized reproduction or redistribution of the core estimation logic is strictly prohibited.
+  </p>
+</section>
+{% endblock %}

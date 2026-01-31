@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}Product - SprintIQ{% endblock %}
+
+{% block content %}
+<section class="text-center py-20 bg-transparent">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Product Overview</h1>
+    <p class="text-xl text-secondary">Unlock the science behind better sprint planning.</p>
+  </div>
+</section>
+
+<section class="pb-24">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center gap-16 my-16">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-white mb-6">A New Era of Estimation</h2>
+        <p class="text-secondary text-lg leading-relaxed">SprintIQ analyzes the semantic complexity of your user stories
+          using advanced Natural Language Processing. It
+          compares your current tasks against thousands of historical data points to suggest the most probable Fibonacci
+          story point value.</p>
+      </div>
+      <div class="flex-1 w-full">
+        <div
+          class="bg-slate-900/50 p-8 rounded-xl border border-white/10 text-white flex flex-col items-center gap-2 border-dashed">
+          <!-- Simple visualization -->
+          <div class="bg-white/5 px-6 py-3 rounded-lg w-full text-center">Story</div>
+          <div class="text-secondary">↓</div>
+          <div class="bg-white/5 px-6 py-3 rounded-lg w-full text-center border border-accent">NLP Engine</div>
+          <div class="text-secondary">↓</div>
+          <div class="bg-white/5 px-6 py-3 rounded-lg w-full text-center border border-accent">Regression Model</div>
+          <div class="text-secondary">↓</div>
+          <div
+            class="bg-accent px-6 py-3 rounded-lg w-full text-center font-bold shadow-[0_0_15px_rgba(99,102,241,0.5)]">5
+            Points</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-transparent">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <h2 class="text-3xl font-bold text-white mb-12 border-l-4 border-accent pl-4">Key Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
+      <div
+        class="bg-gradient-to-br from-slate-800/70 to-slate-900/60 backdrop-blur-md border border-white/5 rounded-xl p-10 flex flex-col justify-start h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-slate-900/80">
+        <h3
+          class="flex items-center gap-3 text-xl text-white mb-3 mt-0 relative before:content-[''] before:block before:w-1 before:h-5 before:bg-accent before:rounded-sm">
+          NLP-Based Analysis</h3>
+        <p class="text-secondary text-base m-0 leading-relaxed">Understand context, technical terms, and acceptance
+          criteria automatically.</p>
+      </div>
+      <div
+        class="bg-gradient-to-br from-slate-800/70 to-slate-900/60 backdrop-blur-md border border-white/5 rounded-xl p-10 flex flex-col justify-start h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-slate-900/80">
+        <h3
+          class="flex items-center gap-3 text-xl text-white mb-3 mt-0 relative before:content-[''] before:block before:w-1 before:h-5 before:bg-accent before:rounded-sm">
+          Historical Learning</h3>
+        <p class="text-secondary text-base m-0 leading-relaxed">Adaptive models that get smarter as you provide
+          feedback.</p>
+      </div>
+      <div
+        class="bg-gradient-to-br from-slate-800/70 to-slate-900/60 backdrop-blur-md border border-white/5 rounded-xl p-10 flex flex-col justify-start h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-slate-900/80">
+        <h3
+          class="flex items-center gap-3 text-xl text-white mb-3 mt-0 relative before:content-[''] before:block before:w-1 before:h-5 before:bg-accent before:rounded-sm">
+          Confidence Metrics</h3>
+        <p class="text-secondary text-base m-0 leading-relaxed">Know when the model is sure, and when it needs human
+          review.</p>
+      </div>
+      <div
+        class="bg-gradient-to-br from-slate-800/70 to-slate-900/60 backdrop-blur-md border border-white/5 rounded-xl p-10 flex flex-col justify-start h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-slate-900/80">
+        <h3
+          class="flex items-center gap-3 text-xl text-white mb-3 mt-0 relative before:content-[''] before:block before:w-1 before:h-5 before:bg-accent before:rounded-sm">
+          Agile Standard</h3>
+        <p class="text-secondary text-base m-0 leading-relaxed">Native support for Fibonacci scale (1, 2, 3, 5, 8, 13)
+          used by 90% of teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-[1100px] mx-auto px-6 pb-24">
+  <h2 class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">Built on Modern Tech</h2>
+  <div class="flex gap-3 flex-wrap">
+    <span class="inline-block bg-white/10 px-4 py-2 rounded-full text-sm text-secondary">Python</span>
+    <span class="inline-block bg-white/10 px-4 py-2 rounded-full text-sm text-secondary">FastAPI</span>
+    <span class="inline-block bg-white/10 px-4 py-2 rounded-full text-sm text-secondary">Scikit-Learn</span>
+    <span class="inline-block bg-white/10 px-4 py-2 rounded-full text-sm text-secondary">Transformers</span>
+    <span class="inline-block bg-white/10 px-4 py-2 rounded-full text-sm text-secondary">Pandas</span>
+  </div>
+</section>
+{% endblock %}

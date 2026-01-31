@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}How It Works - SprintIQ{% endblock %}
+
+{% block content %}
+<section class="text-center py-20 bg-transparent">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">How It Works</h1>
+    <p class="text-xl text-secondary">From raw text to actionable insights in milliseconds.</p>
+  </div>
+</section>
+
+<section class="max-w-[700px] mx-auto px-6 py-12">
+  <div class="flex flex-col">
+    <!-- Step 1 -->
+    <div class="flex gap-8 items-start relative group">
+      <div class="text-4xl font-bold text-accent opacity-30 select-none group-hover:opacity-100 transition-opacity">01
+      </div>
+      <div class="pb-16">
+        <h3 class="text-xl font-bold text-white mb-2">Enter User Story</h3>
+        <p class="text-secondary leading-relaxed">Paste your standard format user story: <em>"As a [role], I want
+            [feature], so that [benefit]"</em>.</p>
+      </div>
+      <!-- Connector -->
+      <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-white/10 group-hover:bg-accent/50 transition-colors"></div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-8 items-start relative group">
+      <div class="text-4xl font-bold text-accent opacity-30 select-none group-hover:opacity-100 transition-opacity">02
+      </div>
+      <div class="pb-16">
+        <h3 class="text-xl font-bold text-white mb-2">Preprocessing & Extraction</h3>
+        <p class="text-secondary leading-relaxed">The system cleans the text, removes stop words, and vectorizes the
+          semantic meaning (TF-IDF/Embeddings).</p>
+      </div>
+      <!-- Connector -->
+      <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-white/10 group-hover:bg-accent/50 transition-colors"></div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-8 items-start relative group">
+      <div class="text-4xl font-bold text-accent opacity-30 select-none group-hover:opacity-100 transition-opacity">03
+      </div>
+      <div class="pb-16">
+        <h3 class="text-xl font-bold text-white mb-2">Model Inference</h3>
+        <p class="text-secondary leading-relaxed">Our pre-trained Random Forest Regressor calculates the complexity
+          score based on feature vectors.</p>
+      </div>
+      <!-- Connector -->
+      <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-white/10 group-hover:bg-accent/50 transition-colors"></div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="flex gap-8 items-start relative group">
+      <div class="text-4xl font-bold text-accent opacity-30 select-none group-hover:opacity-100 transition-opacity">04
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white mb-2">Prediction & Confidence</h3>
+        <p class="text-secondary leading-relaxed">The raw score is mapped to the nearest Fibonacci point, and a
+          confidence score is assigned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-card-bg py-24 text-white mt-12 bg-opacity-50 border-t border-white/5">
+  <div class="max-w-[1100px] mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Human in Control</h2>
+    <p class="text-secondary text-lg max-w-2xl mx-auto leading-relaxed">SprintIQ is a decision-support tool. Your team
+      always has the final say. We just provide the data-driven baseline.</p>
+  </div>
+</section>
+{% endblock %}
