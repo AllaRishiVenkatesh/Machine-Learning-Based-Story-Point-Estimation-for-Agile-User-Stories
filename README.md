@@ -48,6 +48,8 @@ Upon receipt, the raw text undergoes rigorous preprocessing. This includes:
 *   **Stop-word Removal**: Filtering out common words that contribute little semantic value.
 *   **Vectorization**: Converting text into numerical feature vectors using techniques such as TF-IDF (Term Frequency-Inverse Document Frequency) or word embeddings. This captures the semantic weight of technical terms and action verbs.
 
+![Processing Steps](docs/images/how_it_works_steps.png)
+
 ### 3. Model Inference
 The vectorized data is passed to a pre-trained Machine Learning model, specifically a Random Forest Regressor. This ensemble learning method is effective for capturing non-linear relationships between linguistic features and implementation effort. The model calculates a raw continuous complexity score based on the learned decision trees.
 
@@ -130,6 +132,8 @@ For integration with external tools (such as Jira or Trello), use the REST API e
 
 ## About the Project
 
+![About SprintIQ](docs/images/about_mission.png)
+
 ### Mission Statement
 The mission of SprintIQ is to eliminate uncertainty in software planning. We aim to bridge the gap between human intuition and data-driven reality, enabling engineering teams to deliver projects on time and with high predictability.
 
@@ -140,6 +144,8 @@ SprintIQ was developed to address the inefficiencies of "Estimation Poker"—a c
 We envision a future where Sprint Planning is fully automated. In this future, AI systems will not only suggest story points but also identify potential implementation risks, suggest acceptance criteria, and help product managers refine requirements before a single line of code is written.
 
 ## Credits and Copyright
+
+![The Founder](docs/images/founder.png)
 
 **Founder & Lead Developer**: Alla Rishi Venkatesh
 *B.Tech Student & AI Developer*
