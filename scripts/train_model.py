@@ -1,4 +1,5 @@
 import os
+import sqlite3
 import joblib
 import pandas as pd
 import numpy as np
@@ -13,27 +14,21 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.utils.preprocessing import clean_text
 
-# 1. Dummy Data Generation
-# In a real scenario, load from CSV
-data = [
-    ("As a user, I want to log in so that I can access my account", 2),
-    ("As a user, I want to reset my password via email", 3),
-    ("As an admin, I want to view a dashboard of all users", 5),
-    ("As a user, I want to upload a profile picture", 3),
-    ("As a user, I want to integrate with a third-party API for payments", 8),
-    ("As an admin, I want to generate a downloadable PDF report of monthly sales", 8),
-    ("As a user, I want to have a persistent shopping cart", 5),
-    ("As a user, I want to change the color theme of the app", 2),
-    ("As a user, I want multi-factor authentication", 5),
-    ("As a developer, I want to migrate the database to a new schema without downtime", 13),
-    ("As a user, I want to search for items by keyword", 3),
-    ("As a user, I want to filter search results by price range", 3),
-    ("As a user, I want to see a history of my orders", 5),
-    ("As a user, I want to get push notifications for new messages", 5),
-    ("As a user, I want to delete my account permanently", 3),
-]
+# 1. Load Data
+# Using the merged real-world dataset from CSV folder
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+csv_path = os.path.join(base_dir, "data", "merged_real_data.csv")
 
-df = pd.DataFrame(data, columns=["story", "points"])
+if os.path.exists(csv_path):
+    print(f"Loading training data from: {csv_path}")
+    df = pd.read_csv(csv_path)
+    # Ensure columns match expectations
+    if "story" not in df.columns or "points" not in df.columns:
+        # Fallback mapping if headers are weird (though import_csv_folder ensures them)
+        print("Warning: Columns 'story' or 'points' missing. Checking headers...")
+        print(df.columns)
+else:
+    raise FileNotFoundError(f"Training data not found at {csv_path}. Run scripts/import_csv_folder.py first.")
 
 print("Training data:")
 print(df.head())
