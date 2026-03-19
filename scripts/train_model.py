@@ -22,6 +22,39 @@ csv_path = os.path.join(base_dir, "data", "merged_real_data.csv")
 if os.path.exists(csv_path):
     print(f"Loading training data from: {csv_path}")
     df = pd.read_csv(csv_path)
+    
+    # --- BALANCING LOGIC START ---
+    # The real world data is heavily skewed to 1s and 2s.
+    # We must balance it so the model learns to predict 8s and 13s.
+    print("Balancing dataset distribution...")
+    
+    # Only keep standard fibonacci points to reduce noise
+    valid_points = [1, 2, 3, 5, 8, 13, 21] 
+    df = df[df['points'].isin(valid_points)]
+    
+    # Sample N items from each class to flatten the distribution
+    # If a class has fewer than N, take them all.
+    TARGET_PER_CLASS = 1500 
+    
+    balanced_dfs = []
+    for point_val in valid_points:
+        subset = df[df['points'] == point_val]
+        if len(subset) > 0:
+            if len(subset) > TARGET_PER_CLASS:
+                # Undersample majority
+                subset = subset.sample(n=TARGET_PER_CLASS, random_state=42)
+            else:
+                # Oversample minority (with replacement)
+                subset = subset.sample(n=TARGET_PER_CLASS, replace=True, random_state=42)
+            balanced_dfs.append(subset)
+    
+    if balanced_dfs:
+        df = pd.concat(balanced_dfs)
+        df = df.sample(frac=1, random_state=42).reset_index(drop=True)
+        print("Balanced distribution:")
+        print(df['points'].value_counts().sort_index())
+    # --- BALANCING LOGIC END ---
+
     # Ensure columns match expectations
     if "story" not in df.columns or "points" not in df.columns:
         # Fallback mapping if headers are weird (though import_csv_folder ensures them)
@@ -40,13 +73,13 @@ df['clean_text'] = df['story'].apply(clean_text)
 # 3. Vectorization
 print("Vectorizing...")
 # Using TF-IDF
-vectorizer = TfidfVectorizer(max_features=1000)
+vectorizer = TfidfVectorizer(max_features=4000)
 X = vectorizer.fit_transform(df['clean_text'])
 y = df['points']
 
 # 4. Model Training
 print("Training RandomForest...")
-rf = RandomForestRegressor(n_estimators=100, random_state=42)
+rf = RandomForestRegressor(n_estimators=20, max_depth=20, random_state=42)
 rf.fit(X, y)
 
 # 5. Saving Artifacts

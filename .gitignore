@@ -5,3 +5,4 @@ ml_artifacts/
 .venv
 venv/
 .vscode/
+data/
