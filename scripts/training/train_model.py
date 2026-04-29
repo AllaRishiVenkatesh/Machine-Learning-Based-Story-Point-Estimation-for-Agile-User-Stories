@@ -10,14 +10,14 @@ from sklearn.pipeline import Pipeline
 # Use absolute imports or run as module, but for a script, simple relative path handling is needed
 # if running from root.
 import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from app.utils.preprocessing import clean_text
 
 # 1. Load Data
 # Using the merged real-world dataset from CSV folder
-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-csv_path = os.path.join(base_dir, "data", "merged_real_data.csv")
+base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+csv_path = os.path.join(base_dir, "data", "processed", "merged_real_data.csv")
 
 if os.path.exists(csv_path):
     print(f"Loading training data from: {csv_path}")

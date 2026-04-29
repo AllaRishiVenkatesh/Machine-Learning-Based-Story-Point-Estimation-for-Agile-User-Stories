@@ -3,9 +3,9 @@ import os
 import glob
 
 def import_csv_folder():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    csv_folder = os.path.join(base_dir, "data", "csv_source")
-    output_path = os.path.join(base_dir, "data", "merged_real_data.csv")
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    csv_folder = os.path.join(base_dir, "data", "raw", "csv_source")
+    output_path = os.path.join(base_dir, "data", "processed", "merged_real_data.csv")
     
     all_files = glob.glob(os.path.join(csv_folder, "*.csv"))
     print(f"Found {len(all_files)} CSV files in {csv_folder}")

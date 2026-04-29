@@ -37,6 +37,32 @@ The estimation engine utilizes **Scikit-Learn**.
 *   **Training Data**: The model is trained on a curated dataset of over **40,000 real-world user stories** mined from diverse open-source projects.
 *   **History & Feedback**: Operational history and user feedback are stored in structured CSV files, ensuring data portability and simplicity.
 
+## Project Structure
+
+```text
+spatial-feynman/
+├── app/                      # FastAPI Backend & Frontend Logic
+│   ├── core/                 # App configurations & Storage logic
+│   ├── models/               # Pydantic models
+│   ├── routes/               # API endpoints
+│   ├── services/             # Business logic (inference service)
+│   ├── static/               # CSS, JS, Images
+│   ├── templates/            # Jinja2 templates
+│   └── utils/                # Helper functions
+├── data/
+│   ├── raw/                  # Original CSV sources
+│   ├── processed/            # Merged dataset and SQLite DB
+│   └── tracker/              # Feedback and history logs
+├── docs/                     # Documentation & Evaluation reports
+├── ml_artifacts/             # Saved Model & Vectorizer
+├── scripts/                  # Utility & ML scripts
+│   ├── training/             # train_model.py
+│   ├── evaluation/           # evaluate_model.py
+│   └── utils/                # DB/CSV utility tools
+├── logs/                     # System & error logs
+└── temp/                     # Temporary files & scratch outputs
+```
+
 ## Installation and Setup
 
 ### Prerequisites
@@ -54,10 +80,10 @@ pip install -r requirements.txt
 Before the application can be used, the machine learning model must be trained on the dataset. This process generates the model artifacts (`model.joblib`) required for inference.
 
 ```bash
-python scripts/train_model.py
+python scripts/training/train_model.py
 ```
 
-*Note: This script uses the `data/merged_real_data.csv` dataset containing ~40,000 records.*
+*Note: This script uses the `data/processed/merged_real_data.csv` dataset containing ~40,000 records.*
 
 ### 3. Usage
 Start the application server:

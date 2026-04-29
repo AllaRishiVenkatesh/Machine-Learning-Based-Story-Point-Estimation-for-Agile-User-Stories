@@ -7,12 +7,12 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import joblib
 
 # Use absolute imports or run as module
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from app.utils.preprocessing import clean_text
 
 def evaluate_model():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    csv_path = os.path.join(base_dir, "data", "merged_real_data.csv")
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    csv_path = os.path.join(base_dir, "data", "processed", "merged_real_data.csv")
     model_path = os.path.join(base_dir, "ml_artifacts", "model.joblib")
     vectorizer_path = os.path.join(base_dir, "ml_artifacts", "vectorizer.joblib")
     output_dir = os.path.join(base_dir, "docs", "images")

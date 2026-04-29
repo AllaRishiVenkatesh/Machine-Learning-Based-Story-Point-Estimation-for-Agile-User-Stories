@@ -11,7 +11,7 @@ class DataStore:
     
     def __init__(self):
         self.base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        self.data_dir = os.path.join(self.base_dir, "data")
+        self.data_dir = os.path.join(self.base_dir, "data", "tracker")
         self.history_file = os.path.join(self.data_dir, "history.csv")
         self.feedback_file = os.path.join(self.data_dir, "feedback.csv")
         

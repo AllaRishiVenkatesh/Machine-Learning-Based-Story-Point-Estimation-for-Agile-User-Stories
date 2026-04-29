@@ -3,8 +3,8 @@ import os
 
 def init_db():
     # Define database path
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    db_path = os.path.join(base_dir, "data", "agile_data.db")
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    db_path = os.path.join(base_dir, "data", "processed", "agile_data.db")
     
     # Ensure data directory exists
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
