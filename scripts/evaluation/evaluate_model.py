@@ -1,5 +1,6 @@
 import os
 import sys
+import sqlite3
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,24 +13,40 @@ from app.utils.preprocessing import clean_text
 
 def evaluate_model():
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    csv_path = os.path.join(base_dir, "data", "processed", "merged_real_data.csv")
+    db_path = os.path.join(base_dir, "data", "processed", "agile_data.db")
     model_path = os.path.join(base_dir, "ml_artifacts", "model.joblib")
     vectorizer_path = os.path.join(base_dir, "ml_artifacts", "vectorizer.joblib")
     output_dir = os.path.join(base_dir, "docs", "images")
     os.makedirs(output_dir, exist_ok=True)
 
-    if not os.path.exists(csv_path) or not os.path.exists(model_path):
-        print("Data or models not found.")
+    if not os.path.exists(db_path) or not os.path.exists(model_path):
+        print(f"Database ({db_path}) or model artifact ({model_path}) not found.")
         return
 
-    print("Loading data...")
-    df = pd.read_csv(csv_path)
+    print("Loading data from database...")
+    conn = sqlite3.connect(db_path)
+    try:
+        # Load from historical_stories and alias columns to 'story' and 'points' for consistency
+        df = pd.read_sql_query("SELECT story_text AS story, actual_points AS points FROM historical_stories", conn)
+    finally:
+        conn.close()
+
+    if df.empty:
+        print("No records found in database.")
+        return
     
     # Validation logic (same as training for evaluation representation)
     valid_points = [1, 2, 3, 5, 8, 13, 21]
     df = df[df['points'].isin(valid_points)]
-    # sample to avoid massive wait for evaluation
-    df = df.sample(n=min(len(df), 5000), random_state=42)
+    
+    # Sort index to guarantee deterministic split matching the training script
+    df = df.sort_index()
+    
+    # Extract test split before evaluation to prevent data leakage
+    from sklearn.model_selection import train_test_split
+    _, df_test = train_test_split(df, test_size=0.2, random_state=42)
+    df = df_test
+    print(f"Evaluating model on unseen test split (size = {len(df)})...")
     
     print("Preprocessing...")
     df['clean_text'] = df['story'].apply(clean_text)
