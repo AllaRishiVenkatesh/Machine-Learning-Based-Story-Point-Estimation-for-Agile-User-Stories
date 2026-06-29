@@ -6,6 +6,9 @@ class StoryRequest(BaseModel):
     user_story: str = Field(..., description="The user story text", min_length=5, example="As a user, I want to reset my password")
 
 class PredictionResponse(BaseModel):
+    model_config = {
+        "protected_namespaces": ()
+    }
     id: str = Field(..., description="Unique ID for this inference request")
     predicted_story_points: int = Field(..., description="The estimated story points")
     model_used: str = Field(..., description="The name of the ML model used")

@@ -83,7 +83,7 @@ rf = RandomForestRegressor(n_estimators=20, max_depth=20, random_state=42)
 rf.fit(X, y)
 
 # 5. Saving Artifacts
-output_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "ml_artifacts")
+output_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "ml_artifacts")
 os.makedirs(output_dir, exist_ok=True)
 
 model_path = os.path.join(output_dir, "model.joblib")

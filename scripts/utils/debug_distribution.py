@@ -2,8 +2,8 @@ import pandas as pd
 import os
 
 def check_distribution():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    csv_path = os.path.join(base_dir, "data", "merged_real_data.csv")
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    csv_path = os.path.join(base_dir, "data", "processed", "merged_real_data.csv")
     
     df = pd.read_csv(csv_path)
     

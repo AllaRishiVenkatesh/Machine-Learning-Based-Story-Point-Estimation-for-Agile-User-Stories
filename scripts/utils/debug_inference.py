@@ -1,10 +1,13 @@
-import joblib
+import sys
 import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+import joblib
 import pandas as pd
 from app.utils.preprocessing import preprocess_story
 
 def test_model_inference():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     model_path = os.path.join(base_dir, "ml_artifacts", "model.joblib")
     vectorizer_path = os.path.join(base_dir, "ml_artifacts", "vectorizer.joblib")
     
